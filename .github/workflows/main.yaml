@@ -21,10 +21,10 @@ jobs:
           python-version: '3.x'
 
       - name: Upgrade pip
-        uses: python -m pip install --upgrade pip
+        run: python -m pip install --upgrade pip
 
       - name: Instalar pytest
-        uses: pip install pytest
+        run: pip install pytest
 
       - name: Hacer test del codigo con pytest
-        uses: pytest test.py
+        run: pytest test.py
