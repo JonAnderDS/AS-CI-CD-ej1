@@ -1,0 +1,30 @@
+name: Workflow del primer ejercicio
+ 
+on: 
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Bajar Codigo
+        uses: actions/checkout@v5
+
+      - name: Instalar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Upgrade pip
+        uses: python -m pip install --upgrade pip
+
+      - name: Instalar pytest
+        uses: pip install pytest
+
+      - name: Hacer test del codigo con pytest
+        uses: pytest test.py
